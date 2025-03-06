@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EventNexus</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>EventNexus</h1>
+    </header>
+    
+    <div class="container">
+        <div class="search-box">
+            <form id="searchForm">
+                <p>What are you looking for?</p>
+                <label>
+                    <input type="radio" name="searchOption" value="hackathons" required> Hackathons
+                </label>
+                <label>
+                    <input type="radio" name="searchOption" value="internships"> Internships
+                </label>
+                <br><br>
+                <button type="submit">Enter</button>
+            </form>
+        </div>
+
+        <!-- Data div to display fetched data -->
+        <div id="data"></div>
+    </div>
+
+    <script>
+        document.getElementById('searchForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const selectedOption = document.querySelector('input[name="searchOption"]:checked').value; // Get the selected value
+
+            // Redirect based on the selected option
+            if (selectedOption === 'hackathons') {
+                window.location.href = 'hackathons.html'; // Redirect to the hackathons page
+            } else if (selectedOption === 'internships') {
+                window.location.href = 'internships.html'; // Redirect to the internships page
+            }
+        });
+    </script>
+</body>
+</html>
